@@ -1,0 +1,64 @@
+<div class="container-fluid border p-5 d-flex justify-content-center align-items-center body-color">
+    <div class="card">
+        <div class="card-body bg-light">
+
+            <form [formGroup]="form" (ngSubmit)="formProducto()">
+
+                <div class="form-group pt-2 d-none">
+                    <input [(ngModel)]="producto.id" formControlName="id">
+                </div>
+        
+                <div class="form-group pt-2">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput autocomplete="off" [(ngModel)]="producto.name" formControlName="name">
+                    </mat-form-field>
+                </div>
+        
+                <div class="form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Categoria</mat-label>
+                        <mat-select [(ngModel)]="x"  formControlName="category">
+                            <mat-option *ngFor="let item of categorias" [value]="item.id"> {{ item.name }}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+        
+                <div class="form-group pt-2">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Marca</mat-label>
+                        <mat-select [(ngModel)]="y"  formControlName="brand">
+                          <mat-option *ngFor="let marca of marcas" [value]="marca.id"> {{ marca.name }} </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+        
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group pt-2">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Precio</mat-label>
+                        <input matInput [(ngModel)]="producto.price"  type="number" autocomplete="off" formControlName="price">
+                    </mat-form-field>
+                </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group pt-2">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Cantidad</mat-label>
+                        <input matInput type="number" [(ngModel)]="producto.stock"  autocomplete="off" formControlName="stock">
+                    </mat-form-field>
+                </div>
+                    </div>
+                </div>
+                <div class="form-group d-grid gap-*">
+                    <button type="submit" [disabled]="form.invalid" mat-raised-button class="btn btn-lg" color="primary">
+                        {{ btnSave }}
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+

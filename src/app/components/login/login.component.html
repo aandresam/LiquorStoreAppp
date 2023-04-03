@@ -1,0 +1,51 @@
+<mat-spinner *ngIf="loading" class="spinner" diameter="50"></mat-spinner>
+<div *ngIf="!loading" class="container-fluid body-color h-100">
+    <div class="row h-100">
+        <div class="col-lg-6 d-flex justify-content-center flex-column p-5">
+            <h1 class="fw-bold title mb-5 ms-5">
+                Licor Express
+            </h1>
+            <p class="title-description ms-5">
+                Registra tus productos de forma sencilla en nuestra plataforma de Licor Express.
+            </p>
+        </div>
+    
+        <div class="col-lg-6 d-flex justify-content-center align-items-center">
+            <div class="card shadow rounded ">
+                <div class="card-body p-3">
+
+                    <form [formGroup]="form" (ngSubmit)="login()">
+                        <div class="form-group">
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>Email address</mat-label>
+                                <input matInput placeholder="" autocomplete="off" formControlName="email">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password">
+                                <i class="p-3 crusor-pointer" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </i>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group d-grid gap-*">
+                            <button type="submit" [disabled]="form.invalid" mat-raised-button class="btn btn-lg" color="primary">
+                                Iniciar sesión
+                            </button>
+                        </div>
+                    </form>
+
+                    <hr>
+                    <h4 class="text-center">¿Aun no tienes una cuenta?</h4>
+                    <div class="d-flex justify-content-center">
+                        <a href="/registro" mat-stroked-button color="primary" class="btn-reg px-5">
+                            Regístrate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

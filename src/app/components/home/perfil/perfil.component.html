@@ -1,0 +1,39 @@
+<div class="container-fluid body-color h-100">
+    <div class="container pt-5">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between p-3 align-items-center">
+                <span class="fs-3">Perfil del usuario</span>
+                <button color="primary" mat-stroked-button (click)="openUpdateProfile()">
+                    <mat-icon>edit_note</mat-icon>
+                    Actualizar datos
+                </button>
+                <button color="primary" mat-stroked-button (click)="openUpdatePassword()">
+                    <mat-icon>lock_reset</mat-icon>
+                    Cambiar contraseña
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <img src="../../../../assets/img/user.png" width="80%" alt="">
+                    </div>
+                    <div class="col-lg-8">
+                        <h2>Información personal</h2>
+                        <br>
+                        <span><b>Nombre:</b> {{ user.name ?? 'actualizar' }}</span><br><br>
+                        <span><b>Apellido:</b> {{ user.lastName ?? 'actualizar' }}</span><br><br>
+                        <span><b>Email:</b> {{ user.email }}</span><br><br>
+                        <span><b>Telefono:</b> {{ user.phoneNumber ?? 'actualizar' }}</span><br><br>
+                        <span><b>Fecha de registro:</b> {{ user.regDate }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer p-3 d-flex justify-content-center">
+                <button (click)="eliminarCuenta()" color="primary" mat-stroked-button color="warn">
+                    <mat-icon>delete</mat-icon>
+                    Eliminar cuenta
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

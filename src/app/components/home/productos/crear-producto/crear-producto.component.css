@@ -1,0 +1,12 @@
+.btn{
+    height: 50px;
+    font-size: 27px;
+    letter-spacing: -.1px;
+}
+
+form{
+    width: 400px;
+}
+.body-color{
+    background: #eaecf5;
+}

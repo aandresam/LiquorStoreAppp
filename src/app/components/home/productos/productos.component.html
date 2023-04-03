@@ -1,0 +1,94 @@
+<mat-toolbar class="container-fluid d-flex body-color justify-content-center">
+    <div class="col-lg-6 d-flex justify-content-center align-items-center gap-5">
+        <button color="primary" mat-stroked-button routerLink="crear-producto">
+          <mat-icon>add_circle</mat-icon>
+          Crear producto
+        </button>
+        <button color="primary" mat-stroked-button routerLink="categorias">
+          <mat-icon>add_circle</mat-icon>
+          Crear categoria
+        </button>
+        <button color="primary" mat-stroked-button routerLink="marcas">
+          <mat-icon>add_circle</mat-icon>
+          Crear marca
+        </button>
+    </div>
+</mat-toolbar>
+<div class="container-fluid body-color h-100 p-5">
+
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="filter" #input>
+  </mat-form-field>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource"  matSort>
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="Id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="UserName">
+          <th mat-header-cell *matHeaderCellDef> Usuario </th>
+          <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="CategoryName">
+          <th mat-header-cell *matHeaderCellDef> Categoria </th>
+          <td mat-cell *matCellDef="let element"> {{element.categoryName}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="BrandName">
+          <th mat-header-cell *matHeaderCellDef> Marca </th>
+          <td mat-cell *matCellDef="let element"> {{element.brandName}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Price">
+          <th mat-header-cell *matHeaderCellDef> Precio </th>
+          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Stock">
+          <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+          <td mat-cell *matCellDef="let element"> {{element.stock}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="RegDate">
+          <th mat-header-cell *matHeaderCellDef> Fecha de registro </th>
+          <td mat-cell *matCellDef="let element"> {{element.regDate}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Actions">
+            <th mat-header-cell *matHeaderCellDef> Acciones </th>
+            <td mat-cell *matCellDef="let element">
+                <span  style="cursor: pointer;">
+                    <mat-icon [routerLink]="['actualizar-producto', element.id]"  color="primary">edit</mat-icon>
+                </span>
+                <span (click)="deleteProduct(element.id)" style="cursor: pointer;">
+                    <mat-icon color="warn">delete</mat-icon>
+                </span>
+            </td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>      
+  </div>
+</div>

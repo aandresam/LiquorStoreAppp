@@ -1,0 +1,76 @@
+<div class="container-fluid pt-3 body-color h-100 ">
+    <div class="card w-25 mb-3 mx-auto">
+      <div class="card-body  bg-light">
+
+
+        <form [formGroup]="form" (ngSubmit)="formMarca()">
+          
+            <div class="form-group pt-2 d-none">
+                <input type="hidden" [(ngModel)]="formulario.id" autocomplete="off" formControlName="id">
+            </div>
+
+            <div class="form-group pt-2">
+              <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput [(ngModel)]="formulario.nombre" autocomplete="off" formControlName="name">
+                </mat-form-field>
+            </div>
+    
+            <div class="form-group d-grid gap-*">
+                <button type="submit" [disabled]="form.invalid" mat-raised-button class="btn btn-lg" color="primary">
+                    Guardar
+                </button>
+            </div>
+            <div class="form-group d-grid gap-* mt-2">
+                <button type="reset" mat-stroked-button class="btn btn-lg" color="warn">
+                    Cancelar
+                </button>
+            </div>
+      </form>
+      </div>
+    </div>
+  
+    <div class="container p-5">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="Id">
+              <th mat-header-cell *matHeaderCellDef> Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="Name">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="RegDate">
+              <th mat-header-cell *matHeaderCellDef> Fecha de registro </th>
+              <td mat-cell *matCellDef="let element"> {{element.regDate}} </td>
+            </ng-container>
+     
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="Actions" >
+                <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                <td mat-cell *matCellDef="let element" >
+                    <button mat-button color="primary" (click)="edit(element.id)">
+                        <mat-icon >edit</mat-icon>
+                    </button>
+                    <button mat-button color="warn" (click)="deleteById(element.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>  
+    </div>    
+
+  </div>
+  

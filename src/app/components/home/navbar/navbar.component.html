@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+    <div class="row w-100 container-fluid">
+        <div class="col-lg-3 d-flex justify-content-center align-items-center">
+            <span class="fs-3">Licor Express</span>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center align-items-center">
+            <button mat-button routerLink="/home">
+                Home
+                <mat-icon>home</mat-icon>
+            </button>
+            <button mat-button routerLink="/home/productos">
+                Productos
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+            <button mat-button routerLink="/home/perfil">
+                Perfil
+                <mat-icon>manage_accounts</mat-icon>
+            </button>
+        </div>
+        <div class="col-lg-3 d-flex justify-content-end align-items-center">
+            <button  (click)="logout()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>logout</mat-icon>
+            </button>
+        </div>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Actualizar información</h1>
+<div mat-dialog-content class="pt-2" style="width: 400px;">
+    
+
+    <form [formGroup]="form" (ngSubmit)="updateProfile()">
+        <div class="form-group">
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput [(ngModel)]="profile.nombre" autocomplete="off" formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input matInput [(ngModel)]="profile.apellido" autocomplete="off" formControlName="lastName">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Teléfono</mat-label>
+                <input matInput [(ngModel)]="profile.telefono" autocomplete="off" formControlName="phoneNumber">
+            </mat-form-field>
+        </div>
+        <div class="form-group d-grid gap-*">
+            <button type="submit" [disabled]="form.invalid" mat-raised-button class="btn btn-lg" color="primary">
+                Guardar cambios
+            </button>
+        </div>
+    </form>
+
+
+</div>
+<div mat-dialog-actions class="d-flex justify-content-center">
+  <button mat-button mat-dialog-close>Close</button>
+</div>

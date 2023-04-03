@@ -1,0 +1,73 @@
+<div class="container-fluid body-color h-100">
+    <div class="row h-100">
+        <div class="col-lg-6 d-flex justify-content-center flex-column p-5">
+            <h1 class="fw-bold title mb-5 ms-5">
+                Licor Express
+            </h1>
+            <p class="title-description ms-5">
+                ¡Únete a nuestra comunidad y registra tus productos en minutos!
+            </p>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center align-items-center">
+            <div class="card shadow rounded">
+                <div class="card-body p-3">
+
+                    <form [formGroup]="form" (ngSubmit)="register()">
+                        <div class="form-group">
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>Email address</mat-label>
+                                <input matInput placeholder="" autocomplete="off" formControlName="email">
+                                <mat-icon mat-button
+                                        matTooltip="El email debe contener al menos 2 caracteres antes de 
+                                        la '@' y solo se permiten letras, números, puntos, guiones 
+                                        bajos y guiones, además, debe haber al menos dos caracteres después de la @
+                                        . Debe haber al menos dos caracteres después del punto ."
+                                        [matTooltipPosition]="position.value!"
+                                        matSuffix>
+                                    info
+                                </mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input matInput type="password" autocomplete="off" formControlName="password">
+                                <mat-icon mat-button
+                                            matTooltip="La contraseña debe ser mayor a 8 caracteres."
+                                            [matTooltipPosition]="position.value!"
+                                            matSuffix>
+                                    info
+                                </mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>Repeat password</mat-label>
+                                <input matInput type="password" autocomplete="off" formControlName="repeatPassword">
+                                <mat-icon mat-button
+                                            matTooltip="Las contraseñas deben ser iguales."
+                                            [matTooltipPosition]="position.value!"
+                                            matSuffix>
+                                    info
+                                </mat-icon>    
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group d-grid gap-*">
+                            <button type="submit" [disabled]="form.invalid" mat-raised-button class="btn btn-lg" color="primary">
+                                Registrarse
+                            </button>
+                        </div>
+                    </form>
+
+                    <hr>
+                    <h4 class="text-center">¿Ya tienes una cuenta?</h4>
+                    <div class="d-flex justify-content-center">
+                        <a href="/login" mat-stroked-button color="primary" class="btn-reg px-5">
+                            Iniciar sesión
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

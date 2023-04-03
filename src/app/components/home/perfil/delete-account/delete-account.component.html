@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Eliminar cuenta</h1>
+<div mat-dialog-content class="pt-2" style="width: 400px;">
+
+
+  <form [formGroup]="form" >
+
+    <div class="form-group">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Ingrese su contraseña</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password">
+        <i class="p-3 crusor-pointer" mat-icon-button matSuffix (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </i>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group d-grid gap-*">
+      <button type="submit" [disabled]="form.invalid" mat-raised-button class="btn btn-lg" color="warn">
+        Eliminar
+      </button>
+    </div>
+  </form>
+
+
+</div>
+<div mat-dialog-actions class="d-flex justify-content-center">
+  <button mat-button mat-dialog-close>Close</button>
+</div>
