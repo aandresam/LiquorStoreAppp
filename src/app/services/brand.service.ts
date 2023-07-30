@@ -6,7 +6,7 @@ import { Brand } from '../interfaces/Brand';
 import { JwtService } from './jwt.service';
 
 
-const URL = 'http://german.somee.com/api/brands'
+const URL = 'https://localhost:7236/api/brands'
 
 
 @Injectable({
@@ -31,7 +31,7 @@ export class BrandService {
     const headers = { Authorization: 'Bearer ' + token}
     return this.http.get<any>(`${URL}`, { headers: headers });
   }
-  
+
   getById(id: number) : Observable<ApiResponse> {
     let token = this.jwtService.getToken();
     const headers = { Authorization: 'Bearer ' + token}

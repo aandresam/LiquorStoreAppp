@@ -6,7 +6,7 @@ import { PasswordUpdate } from '../interfaces/PasswordUpdate';
 import { User } from '../interfaces/User';
 import { JwtService } from './jwt.service';
 
-const URL = 'http://german.somee.com/api/user'
+const URL = 'https://localhost:7236/api/products'
 
 
 @Injectable({
@@ -35,7 +35,6 @@ export class UserService {
   updatePassword(password: PasswordUpdate) : Observable<ApiResponse>{
     let token = this.jwtService.getToken();
     const headers = { Authorization: 'Bearer ' + token}
-    console.log(password)
     return this.http.patch<any>(`${URL}/set-password`, password, { headers: headers });
   }
 

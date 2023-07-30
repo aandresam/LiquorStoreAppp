@@ -5,8 +5,8 @@ import { ApiResponse } from '../interfaces/ApiResponse';
 import { ProductRequest } from '../interfaces/ProductRequest';
 import { JwtService } from './jwt.service';
 
-const URL = 'http://german.somee.com/api/products'
-//const URL = 'https://localhost:7241/api/products'
+//const URL = 'http://german.somee.com/api/products'
+const URL = 'https://localhost:7236/api/products'
 
 
 @Injectable({

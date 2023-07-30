@@ -36,7 +36,7 @@ export class CrearCategoriaComponent implements OnInit {
       Name: '',
     }
   }
-  
+
   ngOnInit(): void {
     this.getCategorias()
   }
@@ -48,9 +48,11 @@ export class CrearCategoriaComponent implements OnInit {
     }
     if(this.categoria.Id == 0 || this.categoria.Id == '' || this.categoria.Id == null){
       this.crearCategoria(this.categoria);
+      this.getCategorias();
       return;
     }
     this.updateCategoria(this.categoria);
+    this.getCategorias();
   }
 
   getCategorias(){

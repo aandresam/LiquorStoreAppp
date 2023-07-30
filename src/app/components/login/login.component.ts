@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private _authService: AuthService,
     private _jwtService: JwtService
-  ) 
+  )
   {
     this.form = this.formBuilder.group({
       email: ['', Validators.required],
@@ -48,17 +48,17 @@ export class LoginComponent implements OnInit {
       email: this.form.value.email,
       password: this.form.value.password
     }
-    
+    this.loading = true;
     this._authService.authenticate(this.credentials).subscribe((result: ApiResponse) => {
 
-      this.loading = true;
+
       if(!result.succeded){
 
         setTimeout(() => {
           this.loading = false;
           this.swal(result.message, 'error');
         }, 800);
-        
+
         this.form.reset();
         return;
       }
@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
   }
 
   redirectToHome(){
-    this.loading = true;    
+    this.loading = true;
     setTimeout(() => {
       this.router.navigate(['/home']);
     }, 1500)

@@ -24,7 +24,7 @@ export class SetPasswordComponent {
       currentPassword: ['', Validators.required],
       newPassword: ['', Validators.required],
     });
-    
+
   }
 
 
@@ -36,7 +36,7 @@ export class SetPasswordComponent {
     this.userService.updatePassword(password).subscribe((result: ApiResponse) => {
       this.snackBar(result.message);
       setTimeout(() => {
-        window.location.reload();
+        
       }, 1000 )
     })
   }
